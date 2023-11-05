@@ -14,6 +14,29 @@ export default {
     <div class="card-header">{{ project.name }}</div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{ project.description }}</li>
+
+      <!-- collego i type -->
+      <!-- ricorda: per bindare in vue usa solo una parentesi grafa
+        gli attributi dell css sono senza lineette, attaccati e in camelcase -->
+      <li
+        class="list-group-item"
+        :style="{ backgroundColor: project.type.color }"
+        v-if="project.type_id"
+      >
+        type: {{ project.type.label }}
+      </li>
+
+      <!-- collego le tecnologie -->
+      <li class="list-group-item" v-if="project.tecnologies[0]">
+        <div class="fw-bold">tecnologie:</div>
+        <div
+          class="div"
+          v-for="tecnology in project.tecnologies"
+          :style="{ backgroundColor: tecnology.color }"
+        >
+          {{ tecnology.label }}
+        </div>
+      </li>
     </ul>
   </div>
 </template>
