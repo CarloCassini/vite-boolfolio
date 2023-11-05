@@ -8,6 +8,11 @@ export default {
     return {
       store,
       projects: [],
+      pagination: {
+        next: null,
+        prev: null,
+        links: null,
+      },
     };
   },
   components: { ProjectList },
@@ -18,6 +23,11 @@ export default {
       axios.get(uri).then((response) => {
         this.projects = response.data.projects.data;
         console.log(this.projects);
+
+        // valorizzo le paginazioni
+        this.pagination.prev = response.data.projects.prev_page_url;
+        this.pagination.next = response.data.projects.next_page_url;
+        this.pagination.links = response.data.projects.links;
       });
     },
   },
@@ -29,13 +39,35 @@ export default {
 </script>
 
 <template>
+  <div class="container my-3">
+    <div
+      class="btn btn-primary"
+      @click="fetchProjects(pagination.prev)"
+      v-if="pagination.prev"
+    >
+      prev
+    </div>
+    <div
+      v-for="link in pagination.links"
+      class="btn btn-warning"
+      @click="fetchProjects(link.url)"
+      v-html="link.label"
+    >
+      <!-- per vedere il testo corretto, essendo dell'html il valore restituito in questo caso, uso v-html -->
+      <!-- {{ link.label }} -->
+    </div>
+    <div
+      class="btn btn-primary"
+      @click="fetchProjects(pagination.next)"
+      v-if="pagination.next"
+    >
+      next
+    </div>
+  </div>
+
   <div class="container">
-    <h1 class="my-5">hello world</h1>
-    {{ projects }}
     <ProjectList :projects="projects" />
   </div>
 </template>
 
 <style lang="scss"></style>
-
-<!-- ARRIVATO AL MINUTO 00:18 DELLA LEZIONE 83B -->
