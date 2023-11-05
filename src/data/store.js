@@ -4,5 +4,5 @@ import { reactive } from "vue";
 
 // qui dentro mettimao tutti i data globali
 export const store = reactive({
-  apiUri: "http://localhost:8000/",
+  baseUrl: "http://localhost:8000/api/",
 });

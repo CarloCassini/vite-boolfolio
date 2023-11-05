@@ -13,10 +13,11 @@ export default {
   components: { ProjectList },
 
   methods: {
-    fetchProjects() {
+    fetchProjects(uri = store.baseUrl + "projects") {
       // uso axios per recuperare la mia API
-      axios.get("http://localhost:8000/api/projects").then((response) => {
-        this.projects = response;
+      axios.get(uri).then((response) => {
+        this.projects = response.data.projects.data;
+        console.log(this.projects);
       });
     },
   },
@@ -31,7 +32,7 @@ export default {
   <div class="container">
     <h1 class="my-5">hello world</h1>
     {{ projects }}
-    <ProjectList />
+    <ProjectList :projects="projects" />
   </div>
 </template>
 
