@@ -15,9 +15,9 @@ export default {
 <template>
   <h1 class="container my-5 debug">hello postlist</h1>
   <div class="debug">
-    <div class="row">
+    <div class="container row justify-content-between">
       <projectCard
-        class="col-4"
+        class="col-4 m-2"
         v-for="project in projects"
         :project="project"
       />

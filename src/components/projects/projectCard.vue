@@ -13,9 +13,7 @@ export default {
   <div class="card" style="width: 18rem">
     <div class="card-header">{{ project.name }}</div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">{{ project.description }}</li>
     </ul>
   </div>
 </template>
