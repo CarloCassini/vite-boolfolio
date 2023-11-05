@@ -40,29 +40,30 @@ export default {
 
 <template>
   <div class="container my-3">
-    <div
+    <!-- <div
       class="btn btn-primary"
       @click="fetchProjects(pagination.prev)"
       v-if="pagination.prev"
     >
       prev
-    </div>
+    </div> -->
+
     <div
       v-for="link in pagination.links"
       class="btn btn-warning"
       @click="fetchProjects(link.url)"
       v-html="link.label"
-    >
-      <!-- per vedere il testo corretto, essendo dell'html il valore restituito in questo caso, uso v-html -->
-      <!-- {{ link.label }} -->
-    </div>
-    <div
+    ></div>
+    <!-- per vedere il testo corretto, essendo dell'html il valore restituito in questo caso, uso v-html -->
+    <!-- {{ link.label }} -->
+
+    <!-- <div
       class="btn btn-primary"
       @click="fetchProjects(pagination.next)"
       v-if="pagination.next"
     >
       next
-    </div>
+    </div> -->
   </div>
 
   <div class="container">
