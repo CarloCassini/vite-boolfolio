@@ -42,28 +42,26 @@ export default {
 </script>
 
 <template>
-  <div class="container my-3 debug">
-    <h1>Portfolio Portfolio Portfolio</h1>
-    <h3>from pages</h3>
+  <div class="container mt-5">
     <div class="btn-detail">
       <router-link class="router-link-color" :to="{ name: 'project-detail' }">
         project detail
       </router-link>
     </div>
+  </div>
 
-    <div class="">
-      <div class="container my-3">
-        <div
-          v-for="link in pagination.links"
-          class="btn btn-warning"
-          @click="fetchProjects(link.url)"
-          v-html="link.label"
-        ></div>
-      </div>
+  <div class="">
+    <div class="container my-3">
+      <div
+        v-for="link in pagination.links"
+        class="btn btn-warning"
+        @click="fetchProjects(link.url)"
+        v-html="link.label"
+      ></div>
+    </div>
 
-      <div class="container">
-        <ProjectList :projects="projects" />
-      </div>
+    <div class="container">
+      <ProjectList :projects="projects" />
     </div>
   </div>
 </template>

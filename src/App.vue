@@ -1,19 +1,9 @@
 <script>
 import AppHeader from "./components/AppHeade.vue";
-import axios from "axios";
-import { store } from "./data/store";
 
 export default {
   data() {
-    return {
-      store,
-      projects: [],
-      pagination: {
-        next: null,
-        prev: null,
-        links: null,
-      },
-    };
+    return {};
   },
   components: { AppHeader },
 };
