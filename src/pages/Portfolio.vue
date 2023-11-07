@@ -42,13 +42,13 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5">
+  <!-- <div class="container mt-5">
     <div class="btn-detail">
       <router-link class="router-link-color" :to="{ name: 'project-detail' }">
         project detail
       </router-link>
     </div>
-  </div>
+  </div> -->
 
   <div class="">
     <div class="container my-3">

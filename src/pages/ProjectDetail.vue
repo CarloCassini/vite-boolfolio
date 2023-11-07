@@ -11,6 +11,7 @@ export default {
   <div class="container my-3 debug">
     <h1>ProjectDetail</h1>
     <h3>from subpage pages</h3>
+    <!-- {{ project.id }} -->
   </div>
 </template>
 
