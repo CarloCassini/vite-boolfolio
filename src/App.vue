@@ -39,6 +39,7 @@ export default {
 </script>
 
 <template>
+  <router-view></router-view>
   <div class="container my-3">
     <!-- <div
       class="btn btn-primary"
