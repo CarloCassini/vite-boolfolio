@@ -41,6 +41,10 @@ export default {
 
 <template>
   <AppHeader></AppHeader>
+  <div class="container debug">
+    * si parla di passare i parametri alla vista al minuto 00.28 della lezione
+    85A
+  </div>
   <router-view></router-view>
 
   todo: spostare il project list (è in d-none)

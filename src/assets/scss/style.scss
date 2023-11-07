@@ -2,3 +2,16 @@
   background-color: rgba(255, 0, 0, 0.3);
   border: 1px dashed red;
 }
+
+.btn-detail {
+  color: white;
+  background-color: blue;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+
+  .router-link-color {
+    color: currentColor;
+    text-decoration: none;
+  }
+}
