@@ -42,35 +42,40 @@ export default {
 <template>
   <AppHeader></AppHeader>
   <router-view></router-view>
-  <div class="container my-3">
-    <!-- <div
+
+  todo: spostare il project list (è in d-none)
+  <!-- todo: spostare il project list (è in d-none) -->
+  <div class="d-none">
+    <div class="container my-3">
+      <!-- <div
       class="btn btn-primary"
       @click="fetchProjects(pagination.prev)"
       v-if="pagination.prev"
-    >
+      >
       prev
     </div> -->
 
-    <div
-      v-for="link in pagination.links"
-      class="btn btn-warning"
-      @click="fetchProjects(link.url)"
-      v-html="link.label"
-    ></div>
-    <!-- per vedere il testo corretto, essendo dell'html il valore restituito in questo caso, uso v-html -->
-    <!-- {{ link.label }} -->
+      <div
+        v-for="link in pagination.links"
+        class="btn btn-warning"
+        @click="fetchProjects(link.url)"
+        v-html="link.label"
+      ></div>
+      <!-- per vedere il testo corretto, essendo dell'html il valore restituito in questo caso, uso v-html -->
+      <!-- {{ link.label }} -->
 
-    <!-- <div
+      <!-- <div
       class="btn btn-primary"
       @click="fetchProjects(pagination.next)"
       v-if="pagination.next"
-    >
+      >
       next
     </div> -->
-  </div>
+    </div>
 
-  <div class="container">
-    <ProjectList :projects="projects" />
+    <div class="container">
+      <ProjectList :projects="projects" />
+    </div>
   </div>
 </template>
 
