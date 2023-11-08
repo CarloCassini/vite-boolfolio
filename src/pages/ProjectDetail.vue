@@ -15,14 +15,19 @@ export default {
     srchProject(uri = store.baseUrl + "projects/" + this.$route.params.slug) {
       // uso axios per recuperare la mia API
       console.log(uri);
-      axios.get(uri).then((response) => {
-        console.log("wakka");
-        console.log(response.data);
-        this.project = response.data;
-        console.log("wokka");
-        console.log(this.project);
-        // todo - collegare il metodo show di api
-      });
+      axios
+        .get(uri)
+        .then((response) => {
+          console.log("wakka");
+          console.log(response.data);
+          this.project = response.data;
+          console.log("wokka");
+          console.log(this.project);
+          // todo - collegare il metodo show di api
+        })
+        .catch((error) => {
+          this.$router.push({ name: "not-found" });
+        });
     },
   },
 

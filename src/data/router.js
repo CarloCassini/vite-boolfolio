@@ -5,6 +5,7 @@ import Homepage from "../pages/Homepage.vue";
 import Altro from "../pages/Altro.vue";
 import Portfolio from "../pages/Portfolio.vue";
 import ProjectDetail from "../pages/ProjectDetail.vue";
+import NotFound from "../pages/NotFound.vue";
 
 // creo la costante router sove inserirò tutte le "rotte" in un oggetto che avrà
 // i seguenti parametri : history e routes
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/project-detail/:slug",
       name: "project-detail",
       component: ProjectDetail,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: NotFound,
     },
   ],
 });
