@@ -12,7 +12,7 @@ export default {
   props: {},
 
   methods: {
-    srchProject(uri = store.baseUrl + "projects/" + this.$route.params.id) {
+    srchProject(uri = store.baseUrl + "projects/" + this.$route.params.slug) {
       // uso axios per recuperare la mia API
       console.log(uri);
       axios.get(uri).then((response) => {
@@ -36,12 +36,12 @@ export default {
   <div class="container my-3 debug">
     <h1>ProjectDetail</h1>
     <h3>from subpage pages</h3>
-    {{ project[0] }}
+    <!-- {{ project }} -->
     <br />
-    {{ project[0].id }}
+    {{ project.id }}
     <br />
-    {{ project[0].name }}
-    <div v-for="tecnology in project[0].tecnologies">{{ tecnology.label }}</div>
+    {{ project.name }}
+    <div v-for="tecnology in project.tecnologies">{{ tecnology.label }}</div>
   </div>
 </template>
 
