@@ -24,6 +24,8 @@ export default {
     fetchProjects(uri = store.baseUrl + "projects") {
       // uso axios per recuperare la mia API
       axios.get(uri).then((response) => {
+        console.log("cicciociccio");
+        console.log(response.data);
         this.projects = response.data.projects.data;
         console.log(this.projects);
 
