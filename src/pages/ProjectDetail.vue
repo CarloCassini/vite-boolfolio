@@ -18,12 +18,7 @@ export default {
       axios
         .get(uri)
         .then((response) => {
-          console.log("wakka");
-          console.log(response.data);
           this.project = response.data;
-          console.log("wokka");
-          console.log(this.project);
-          // todo - collegare il metodo show di api
         })
         .catch((error) => {
           this.$router.push({ name: "not-found" });
@@ -38,7 +33,7 @@ export default {
 </script>
 
 <template>
-  <div class="container my-3 debug">
+  <div class="container my-3 debug" v-if="project">
     <h1>ProjectDetail</h1>
     <h3>from subpage pages</h3>
     <!-- {{ project }} -->

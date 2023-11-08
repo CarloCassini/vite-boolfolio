@@ -29,6 +29,12 @@ const router = createRouter({
       name: "portfolio",
       component: Portfolio,
     },
+    // per la visualizzazione in base altipo
+    {
+      path: "/portfolio/:type_id",
+      name: "portfolio-by-type",
+      component: Portfolio,
+    },
     {
       path: "/project-detail/:slug",
       name: "project-detail",

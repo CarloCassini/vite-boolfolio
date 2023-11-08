@@ -35,7 +35,15 @@ export default {
         :style="{ backgroundColor: project.type.color }"
         v-if="project.type_id"
       >
-        type: {{ project.type.label }}
+        <router-link
+          :to="{
+            name: 'portfolio-by-type',
+            params: { type_id: project.type.id },
+          }"
+        >
+          <!-- todo: sono a lezione 86B minuto 00:14 -->
+          type: {{ project.type.label }}
+        </router-link>
       </li>
 
       <!-- collego le tecnologie -->
