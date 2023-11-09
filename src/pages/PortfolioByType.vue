@@ -7,7 +7,6 @@ export default {
   data() {
     return {
       store,
-      renderkey: 0,
       projects: [],
       pagination: {
         next: null,
@@ -50,7 +49,6 @@ export default {
 <template>
   <div class="">
     <div class="container my-3">
-      <div class="debug">ciccio {{ pagination.links }}</div>
       <div
         v-for="link in pagination.links"
         class="btn btn-warning"
@@ -60,7 +58,6 @@ export default {
     </div>
 
     <div class="container">
-      <div class="debug">{{ renderkey }}</div>
       <ProjectList
         :key="renderkey"
         :projects="projects"

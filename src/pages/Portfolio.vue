@@ -7,7 +7,6 @@ export default {
   data() {
     return {
       store,
-      renderkey: 0,
       projects: [],
       pagination: {
         next: null,
@@ -38,14 +37,10 @@ export default {
     fetchProjectsType(
       uri = store.baseUrl + "projects/type/" + this.$route.params.type_id
     ) {
-      console.log("wooooooooo " + this.$route.params.type_id);
       axios
         .get(uri)
         .then((response) => {
           this.projects = response.data.projects.data;
-          console.log(this.projects);
-          console.log("project by type");
-          console.log(uri);
 
           // valorizzo le paginazioni
           this.pagination.prev = response.data.projects.prev_page_url;
@@ -53,7 +48,7 @@ export default {
           this.pagination.links = response.data.projects.links;
         })
         .catch((error) => {
-          console.log(uri);
+          console.log("errore");
         });
 
       this.renderkey++;
@@ -69,8 +64,6 @@ export default {
 <template>
   <div class="">
     <div class="container my-3">
-      <div class="debug">ciccio {{ pagination.links }}</div>
-
       <div
         v-for="link in pagination.links"
         class="btn btn-warning"
@@ -80,12 +73,7 @@ export default {
     </div>
 
     <div class="container">
-      <div class="debug">{{ renderkey }}</div>
-      <ProjectList
-        :key="renderkey"
-        :projects="projects"
-        @clickType="fetchProjectsType()"
-      />
+      <ProjectList :projects="projects" @clickType="fetchProjectsType()" />
     </div>
   </div>
 </template>
