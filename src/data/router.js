@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Homepage from "../pages/Homepage.vue";
 import Altro from "../pages/Altro.vue";
 import Portfolio from "../pages/Portfolio.vue";
+import PortfolioByType from "../pages/PortfolioByType.vue";
 import ProjectDetail from "../pages/ProjectDetail.vue";
 import NotFound from "../pages/NotFound.vue";
 
@@ -31,9 +32,9 @@ const router = createRouter({
     },
     // per la visualizzazione in base altipo
     {
-      path: "/portfolio/:type_id",
+      path: "/portfolio/type/:type_id",
       name: "portfolio-by-type",
-      component: Portfolio,
+      component: PortfolioByType,
     },
     {
       path: "/project-detail/:slug",

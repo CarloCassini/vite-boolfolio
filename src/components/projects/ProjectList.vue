@@ -19,6 +19,7 @@ export default {
       class="col-4 m-2"
       v-for="project in projects"
       :project="project"
+      @clickType="$emit('clickType')"
     />
   </div>
 </template>

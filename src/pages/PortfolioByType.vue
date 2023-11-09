@@ -22,30 +22,13 @@ export default {
   props: {},
 
   methods: {
-    fetchProjects(uri = store.baseUrl + "projects") {
-      // uso axios per recuperare la mia API
-      axios.get(uri).then((response) => {
-        this.projects = response.data.projects.data;
-
-        // valorizzo le paginazioni
-        this.pagination.prev = response.data.projects.prev_page_url;
-        this.pagination.next = response.data.projects.next_page_url;
-        this.pagination.links = response.data.projects.links;
-      });
-      this.renderkey++;
-    },
-
     fetchProjectsType(
       uri = store.baseUrl + "projects/type/" + this.$route.params.type_id
     ) {
-      console.log("wooooooooo " + this.$route.params.type_id);
       axios
         .get(uri)
         .then((response) => {
           this.projects = response.data.projects.data;
-          console.log(this.projects);
-          console.log("project by type");
-          console.log(uri);
 
           // valorizzo le paginazioni
           this.pagination.prev = response.data.projects.prev_page_url;
@@ -55,13 +38,11 @@ export default {
         .catch((error) => {
           console.log(uri);
         });
-
-      this.renderkey++;
     },
   },
 
   created() {
-    this.fetchProjects();
+    this.fetchProjectsType();
   },
 };
 </script>
@@ -70,11 +51,10 @@ export default {
   <div class="">
     <div class="container my-3">
       <div class="debug">ciccio {{ pagination.links }}</div>
-
       <div
         v-for="link in pagination.links"
         class="btn btn-warning"
-        @click="fetchProjects(link.url)"
+        @click="fetchProjectsType(link.url)"
         v-html="link.label"
       ></div>
     </div>

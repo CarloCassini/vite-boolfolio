@@ -40,6 +40,7 @@ export default {
             name: 'portfolio-by-type',
             params: { type_id: project.type.id },
           }"
+          @click="$emit('clickType')"
         >
           <!-- todo: sono a lezione 86B minuto 00:14 -->
           type: {{ project.type.label }}
