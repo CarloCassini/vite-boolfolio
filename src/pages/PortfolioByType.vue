@@ -8,6 +8,7 @@ export default {
     return {
       store,
       projects: [],
+      types: [],
       pagination: {
         next: null,
         prev: null,
@@ -24,6 +25,8 @@ export default {
     fetchProjectsType(
       uri = store.baseUrl + "projects/type/" + this.$route.params.type_id
     ) {
+      // todo: bisogna ricevere un array con tutti i Type del progetto. interrogando il DB. quindi bisogna fare una API del dei Type da chiamare qui
+      // è possibile anche invocarla all'apertura del progetto e inserirla nello store senza chiamare continuamente axios.
       axios
         .get(uri)
         .then((response) => {
@@ -40,6 +43,30 @@ export default {
     },
   },
 
+  computed: {
+    findTypes(
+      uri = store.baseUrl + "projects/type/" + this.$route.params.type_id
+    ) {
+      console.log(uri);
+
+      axios
+        .get(uri)
+        .then((response) => {
+          this.types = response.data.projects.data;
+
+          // valorizzo le paginazioni
+          this.pagination.prev = response.data.projects.prev_page_url;
+          this.pagination.next = response.data.projects.next_page_url;
+          this.pagination.links = response.data.projects.links;
+        })
+        .catch((error) => {
+          console.log(uri);
+        });
+
+      return this.types;
+    },
+  },
+
   created() {
     this.fetchProjectsType();
   },
@@ -47,6 +74,9 @@ export default {
 </script>
 
 <template>
+  <div class="container my-3 debug">
+    inserisco la lista dei type {{ findTypes }}
+  </div>
   <div class="">
     <div class="container my-3">
       <div
