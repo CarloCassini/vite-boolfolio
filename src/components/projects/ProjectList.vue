@@ -14,7 +14,7 @@ export default {
 
 <template>
   <h1 class="container my-1">lista dei progetti:</h1>
-  <div class="container row justify-content-between">
+  <div class="container row justify-content-start">
     <projectCard
       class="col-4 m-2"
       v-for="project in projects"
